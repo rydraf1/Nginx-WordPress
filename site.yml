@@ -1,0 +1,10 @@
+---
+- name: Install WordPress, MySQL Server, Nginx, and PHP-FPM
+  hosts: wp
+  become: yes
+
+  roles:
+    - mysql-server
+    - nginx
+    - php-fpm
+    - wordpress
