@@ -6,6 +6,10 @@
 
 # - name: Extract archive
 #   command: chdir=/srv/ /bin/tar xvf wordpress-{{ wp_version }}.tar.gz creates=/srv/wordpress
+- name: Creates directory - /srv/wordpress 
+  file:
+    path: /srv/wordpress 
+    state: directory
 
 - name: shell copy
   shell: cp -r /vagrant/wordpress/* /srv/wordpress  
