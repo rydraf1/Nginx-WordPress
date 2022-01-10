@@ -1,7 +1,8 @@
 ## WordPress+Nginx+PHP-FPM+MySQL Deployment
 
 - Requires Ansible 3.x or newer
-- Expects CentOS 8.x host/s
+- Expects CentOS 8.x host/s or Debian OS
+
 
 
 
@@ -22,5 +23,5 @@ Here are some ideas for ways that these playbooks could be extended:
 handle the configuration appropriately.
 - Handle WordPress upgrades automatically.
 
-We would love to see contributions and improvements, so please fork this
+I would love to see contributions and improvements, so please fork this
 repository on GitHub and send us your changes via pull requests.

@@ -1,0 +1,21 @@
+---
+# tasks file for mysql
+- name: Install MySQL
+  apt: name={{ item }} update_cache=yes state=latest
+  with_items:
+   - mysql-server
+   - python3-mysqldb
+   - php-mysql
+
+
+- name: Create wordpress database
+  mysql_db: name={{ wp_db_name }} state=present
+
+- name: Create MySQL wordpress user
+  mysql_user: 
+    name={{ wp_db_user }} 
+    password={{ wp_db_password }} 
+    priv=*.*:ALL
+    
+- name: Start MySQL Service
+  service: name=mysql state=started enabled=yes

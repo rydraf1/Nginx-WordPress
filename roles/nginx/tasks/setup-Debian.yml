@@ -1,0 +1,18 @@
+---
+# tasks file for nginx
+# - name: install nginx
+#   apt: name={{ item }} update_cache=yes state=latest
+#   with_items:
+#     - nginx
+- name: Install nginx
+  apt: name=nginx state=present
+
+- name: Disable default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: Copy nginx configuration for wordpress
+  template: src=Debian-default.conf dest=/etc/nginx/sites-available/{{ site_name }}
+
+- name: Enable site
+  file: src=/etc/nginx/sites-available/{{ site_name }} dest=/etc/nginx/sites-enabled/{{ site_name }} state=link
+  notify: restart nginx

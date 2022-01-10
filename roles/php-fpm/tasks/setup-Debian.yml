@@ -1,0 +1,17 @@
+---
+# tasks file for php
+- name: install php
+  apt: name={{ item }} update_cache=yes state=latest
+  with_items:
+    - php
+    - php-fpm
+    - php-curl
+    - php-xml
+    - php-enchant
+    - php-gd
+    - php-mbstring
+    - php-mysql
+    - php-xmlrpc
+    - php-intl
+    - php-soap
+    - php-zip
